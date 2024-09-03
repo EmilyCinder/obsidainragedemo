@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+    console.log("JavaScript Loaded: Initializing SVG for dynamic border effect");
+
     // Initialize SVG for dynamic border effect
     const svgNS = "http://www.w3.org/2000/svg";
     let svg = document.createElementNS(svgNS, "svg");
@@ -41,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     filter.appendChild(feComposite);
     svg.appendChild(filter);
     document.body.appendChild(svg);
+    console.log("SVG and filter appended to the body");
 
     // Create a square for the border effect
     let rect = document.createElementNS(svgNS, "rect");
@@ -59,5 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(() => {
         rect.style.filter = toggle ? 'url(#pixelate-filter)' : 'none';
         toggle = !toggle;
+        console.log("Toggle filter:", toggle);
     }, 3000);  // Change every 3 seconds
 });
